@@ -2,11 +2,20 @@ import express from 'express'
 import passport from 'passport'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import cookieSession from 'cookie-session'
 import router from './auth.js'
 import './passport.js'
 dotenv.config()
 
 const app = express()
+
+app.use(
+	cookieSession({
+		name: process.env.COOKIE_NAME,
+		keys: [process.env.COOKIE_KEY],
+		maxAge: 24 * 60 * 60 * 1000,
+	})
+)
 
 app.use(express.json())
 
