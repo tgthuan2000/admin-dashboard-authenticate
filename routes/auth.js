@@ -6,7 +6,7 @@ import './passport.js'
 const failureRedirect = '/auth/login'
 const router = express.Router()
 
-// @route POST /auth/local/login
+// @route POST /auth/login
 // @desc Authenticate with username password
 // @access Public
 router.post('/login', passport.authenticate('local', { failureRedirect }), ({ user }, res) => {
@@ -18,7 +18,7 @@ router.post('/login', passport.authenticate('local', { failureRedirect }), ({ us
 	}
 })
 
-// @route GET /auth/local/re-login
+// @route GET /auth/re-login
 // @desc Authenticate with jwt
 // @access Public
 router.get('/re-login', passport.authenticate('jwt', { session: false }), ({ user }, res) => {
