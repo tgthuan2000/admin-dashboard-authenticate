@@ -2,7 +2,7 @@ import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import { sanity } from './sanity-client.js'
-import { LOGIN, RE_LOGIN } from './routes/query.js'
+import { LOGIN, RE_LOGIN } from './query.js'
 
 passport.use(
 	new LocalStrategy((username, password, done) => {

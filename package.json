@@ -1,12 +1,12 @@
 {
 	"name": "dashboard-server",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "Authenticate for admin velzon dashboard",
+	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
-		"dev": "nodemon index.js",
-		"start": "node index.js"
+		"dev": "nodemon src/index.js",
+		"start": "node src/index.js"
 	},
 	"author": "tgthuan2000",
 	"license": "MIT",
