@@ -1,0 +1,26 @@
+GET http://localhost:5000/auth/login
+
+###
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username": "user123",
+    "password": "123"
+}
+
+###
+
+POST http://localhost:5000/auth/local/login
+Content-Type: application/json
+
+{
+    "username": "user123",
+    "password": "123"
+}
+
+###
+
+GET http://localhost:5000/auth/local/re-login
+Content-Type: application/json
+Authorization: `Bearer `
