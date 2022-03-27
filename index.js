@@ -3,6 +3,7 @@ import passport from 'passport'
 import dotenv from 'dotenv'
 import router from './routes/auth.js'
 import cors from 'cors'
+import './passport.js'
 dotenv.config()
 
 const app = express()

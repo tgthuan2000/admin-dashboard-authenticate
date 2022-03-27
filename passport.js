@@ -1,10 +1,8 @@
-import dotenv from 'dotenv'
-dotenv.config()
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
-import { sanity } from '../sanity-client.js'
-import { LOGIN, RE_LOGIN } from './query.js'
+import { sanity } from './sanity-client.js'
+import { LOGIN, RE_LOGIN } from './routes/query.js'
 
 passport.use(
 	new LocalStrategy((username, password, done) => {
@@ -19,7 +17,7 @@ passport.use(
 	})
 )
 
-const opts = {
+export const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 	secretOrKey: process.env.SECRET_JWT,
 }
