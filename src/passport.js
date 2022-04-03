@@ -6,14 +6,13 @@ import { LOGIN, RE_LOGIN } from './query.js'
 
 passport.use(
 	new LocalStrategy((username, password, done) => {
-		sanity
-			.fetch(LOGIN, { username, password })
-			.then((data) => {
+		sanity.fetch(LOGIN, { username, password }).then((data) => {
+			if (data[0]) {
 				done(null, data[0])
-			})
-			.catch((error) => {
-				done(error)
-			})
+				return
+			}
+			done()
+		})
 	})
 )
 
@@ -26,15 +25,10 @@ passport.use(
 		const { _id, iat, exp } = jwt_payload
 
 		if (exp - iat > 0) {
-			sanity
-				.fetch(RE_LOGIN, { _id })
-				.then((data) => {
-					done(null, data[0])
-				})
-				.catch((error) => {
-					done(error)
-				})
-		} else done(null, false)
+			sanity.fetch(RE_LOGIN, { _id }).then((data) => {
+				done(null, data[0])
+			})
+		} else done()
 	})
 )
 
