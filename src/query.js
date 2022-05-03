@@ -1,5 +1,5 @@
 export const LOGIN = `
-    *[_type == "user" && username == $username && password == $password && role._id != '${process.env.CUSTOMER_ROLE}'] 
+    *[_type == "user" && username == $username && password == $password && role._ref != '${process.env.CUSTOMER_ROLE}'] 
     { 
         _id,
         fullName,
@@ -15,7 +15,7 @@ export const LOGIN = `
 `
 
 export const RE_LOGIN = `
-    *[_type == "user" && _id == $_id && role._id != '${process.env.CUSTOMER_ROLE}'] 
+    *[_type == "user" && _id == $_id && role._ref != '${process.env.CUSTOMER_ROLE}'] 
     { 
         _id, 
         fullName, 
